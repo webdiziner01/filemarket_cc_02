@@ -46,3 +46,42 @@
         </div>
     </div>
 </nav>--}}
+
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{{route('home')}}">
+            {{ config('app.name') }}
+        </a>
+
+
+    </div>
+
+    <div class="nav-right nav-menu" style="float: right">
+        @if(auth()->check())
+            <a href="#" class="nav-item" onclick="event.preventDefault(); document.getElementById('logout').submit();">
+                Sign out
+            </a>
+
+            <a href="#" class="nav-item">
+                Your account
+            </a>
+
+        @else
+            <a href="{{ route('login') }}" class="nav-item">
+                Sign in
+            </a>
+
+            <div class="nav-item">
+                <a href="{{ route('register') }}" class="button">
+                    Start selling
+                </a>
+            </div>
+        @endif
+    </div>
+
+</nav>
+
+<form id="logout" action="{{ route('logout') }}" method="POST" class="is-hidden">
+    {{ csrf_field() }}
+</form>
