@@ -49,7 +49,7 @@
 
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
+    <div class="navbar-brand column">
         <a class="navbar-item" href="{{route('home')}}">
             {{ config('app.name') }}
         </a>
@@ -57,7 +57,7 @@
 
     </div>
 
-    <div class="nav-right nav-menu" style="float: right">
+    <div class="nav-right nav-menu column" style="float: right">
         @if(auth()->check())
             <a href="#" class="nav-item" onclick="event.preventDefault(); document.getElementById('logout').submit();">
                 Sign out
