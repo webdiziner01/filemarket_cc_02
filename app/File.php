@@ -17,6 +17,18 @@ class File extends Model
         return 'identifier';
     }
 
+// this is like model observers, alex has course on it.
+    protected static function boot(){
+        parent::boot();
+
+        static::creating(function($file){
+
+            $file->identifier = uniqid(true);
+        });
+
+    }
+
+
     public function user(){
 
         return $this->belongsTo(User::class);
