@@ -17,7 +17,7 @@ class FileController extends Controller
 
         $this->authorize('touch',$file);
 
-        return 'render form';
+        return view('account.files.create',compact('file'));
     }
 
 
