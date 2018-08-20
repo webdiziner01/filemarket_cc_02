@@ -3,8 +3,8 @@
 @section('account.content')
     <h1 class="title">Sell a file</h1>
 
-    <form action="#" method="post" class="form">
-
+    <form action="{{route('account.files.store',$file)}}" method="post" class="form">
+{{csrf_field()}}
         <div class="field">
             <label for="title" class="label">Title</label>
             <p class="control">
@@ -23,7 +23,7 @@
         <div class="field">
             <label for="overview_short" class="label">Short Overview</label>
             <p class="control">
-                <input type="text" name="title" id="overview_short" class="input {{ $errors->has('overview_short')? ' is-danger' : '' }}">
+                <input type="text" name="overview_short" id="overview_short" class="input {{ $errors->has('overview_short')? ' is-danger' : '' }}">
             </p>
 
 
@@ -60,7 +60,7 @@
         <div class="field">
             <label for="price" class="label">Price (£)</label>
             <p class="control">
-                <input type="text" name="title" id="price" class="input {{ $errors->has('price')? ' is-danger' : '' }}">
+                <input type="text" name="price" id="price" class="input {{ $errors->has('price')? ' is-danger' : '' }}">
             </p>
 
 
