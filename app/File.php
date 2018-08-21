@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Illuminate\Database\Eloquent\Builder;
 class File extends Model
 {
     use SoftDeletes;
@@ -26,6 +26,18 @@ class File extends Model
             $file->identifier = uniqid(true);
         });
 
+    }
+
+
+    public function scopeFinished(Builder $builder)
+    {
+        return $builder->where('finished',true);
+    }
+
+
+    public function isFree()
+    {
+        return $this->price == 0;
     }
 
 

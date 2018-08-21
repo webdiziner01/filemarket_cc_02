@@ -2,7 +2,7 @@
     <p class="menu-label">Files</p>
     <ul class="menu-list">
         <li>
-            <a href="">Your Files</a>
+            <a href="{{route('account.files.index')}}">Your Files</a>
         </li>
 
         <li>

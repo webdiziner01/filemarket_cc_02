@@ -10,6 +10,7 @@ Route::group(['prefix' => '/account', 'middleware' => 'auth', 'namespace' =>'Acc
 
 
     Route::group(['prefix'=>'files'],function(){
+        Route::get('/','FileController@index')->name('account.files.index');
         Route::post('/{file}','FileController@store')->name('account.files.store');
         Route::get('/create','FileController@create')->name('account.files.create.start');
             Route::get('/{file}/create','FileController@create')->name('account.files.create');

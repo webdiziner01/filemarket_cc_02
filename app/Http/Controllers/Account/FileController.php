@@ -9,6 +9,20 @@ use App\Http\Controllers\Controller;
 
 class FileController extends Controller
 {
+
+
+    public function index(Request $request)
+    {
+        $files = auth()->user()->files()->latest()->finished()->get();
+
+
+
+        return view('account.files.index', compact('files'));
+
+    }
+
+
+
     public function create(File $file){
         if(!$file->exists){
             $file = $this->createAndReturnSkeletonFile();
