@@ -47,7 +47,7 @@ class FileController extends Controller
         $file->save();
 
 
-        return redirect()->route('account');
+        return redirect()->route('account.files.index')->withSuccess('Thanks submitted for review.');
 
 
     }
