@@ -22,6 +22,12 @@ class FileController extends Controller
     }
 
 
+    public function edit(File $file){
+
+        $this->authorize('touch',$file);
+
+        return view('account.files.edit',compact('file'));
+    }
 
     public function create(File $file){
         if(!$file->exists){
@@ -66,4 +72,8 @@ class FileController extends Controller
         ]);
 
     }
+
+
+
+
 }

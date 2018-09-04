@@ -15,7 +15,7 @@
                 <p class="level-item">
                     {{$file->live ? 'Live' : 'Not Live'}}
                 </p>
-                <a href="#" class="level-item">Make Changes</a>
+                <a href="{{route('account.files.edit',$file)}}" class="level-item">Make Changes</a>
             </div>
         </div>
     @endslot
