@@ -41,6 +41,11 @@ class File extends Model
     }
 
 
+    public function approvals(){
+        return $this->hasMany(FileApproval::class);
+    }
+
+
     public function user(){
 
         return $this->belongsTo(User::class);
