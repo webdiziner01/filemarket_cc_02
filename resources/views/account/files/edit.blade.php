@@ -3,14 +3,16 @@
 @section('account.content')
     <h1 class="title">Make Changes to {{$file->title}}</h1>
 
-    <form action="{{route('account.files.store',$file)}}" method="post" class="form">
+    <form action="{{route('account.files.update',$file)}}" method="post" class="form">
         {{csrf_field()}}
         {{method_field('PATCH')}}
+
+        <input type="hidden" name="live" value="0">
 
         <div class="field">
             <p class="control">
                 <label for="live" class="checkbox">
-                    <input type="checkbox" name="live" id="live"{{$file->live? ' checked' : ''}}>
+                    <input type="checkbox" name="live" id="live"{{$file->live? ' checked' : ''}} value="1">
                     Live
                 </label>
             </p>

@@ -23,13 +23,15 @@ class UpdateFileRequest extends StoreFileRequest
      */
     public function rules()
     {
-        return array_merge(parent::rules(), [
+        return array_merge(parent::rules(),[
             'live' => ''
         ]);
     }
 
-    public function messages()
-    {
+
+    public function messages(){
         return parent::messages();
     }
+
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Account;
 
 use App\File;
 use App\Http\Requests\File\StoreFileRequest;
+use App\Http\Requests\File\UpdateFileRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -57,6 +58,28 @@ class FileController extends Controller
 
 
     }
+
+
+    public function update(File $file,UpdateFileRequest $request){
+        $this->authorize('touch',$file);
+
+
+        $approvalProperties = $request->only(File::APPROVAL_PROPERTIES);
+
+        if($file->needsApproval($approvalProperties)){
+            dd('needs approval');
+            return;
+        }
+
+
+
+       // dd($request->get('live'));
+
+        $file->update($request->only('live','price'));
+
+        return back()->withsuccess('File Udpated!');
+    }
+
 
 
 
